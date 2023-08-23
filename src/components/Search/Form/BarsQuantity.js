@@ -31,6 +31,6 @@ export default function BarsQuantity({barsQuantity, handleChange}) {
                 icon={<SportsBarIcon fontSize="inherit" />}
                 emptyIcon={<SportsBarOutlined fontSize="inherit" />}
             />
-    </Stack>
+        </Stack>
     );
 }
