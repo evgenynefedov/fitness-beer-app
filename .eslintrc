@@ -1,0 +1,7 @@
+{
+    "extends": "react-app",
+    "globals": {
+      "google": "readonly"
+    }
+  }
+  

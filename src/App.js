@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Wrapper, Status } from '@googlemaps/react-wrapper';
+import FindBarsButton from './components/FindBarsButton';
+import MyMapComponent from './components/MyMapComponent';  // Предполагается, что у вас есть такой компонент
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const render = (status) => {
+  switch (status) {
+    case Status.LOADING:
+      return <p>Loading...</p>;
+    case Status.FAILURE:
+      return <p>Error loading Google Maps</p>;
+    case Status.SUCCESS:
+      return <MyMapComponent />;
+    default:
+      return <p>Loading...</p>;
+  }
+};
+
+const App = () => (
+  <div className="App">
+    <h1>Find Nearby Bars</h1>
+    <FindBarsButton />
+    <Wrapper apiKey={"AIzaSyDx8fNneEhgOyWgtiwg5P05eHEYfQd6qOQ"} libraries={["places"]}  render={render} />
+  </div>
+);
 
 export default App;
