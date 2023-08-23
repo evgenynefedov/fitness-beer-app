@@ -23,5 +23,3 @@ const App = () => (
     <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={render} />
   </div>
 );
-
-export default App;
