@@ -12,7 +12,7 @@ export default function Form() {
 
     const [difficulty, setDifficulty] = React.useState(50);
     const [barsQuantity, setBarsQuantity] = React.useState(2);
-    const [mode, setMode] = React.useState('foot');
+    const [mode, setMode] = React.useState('walking');
 
     const handleDistance = (event, newValue) => {
         setDifficulty(newValue);
@@ -48,9 +48,9 @@ export default function Form() {
 
     return (
         <Container component="main" maxWidth="xs">
-            <Typography variant="h5" align="center" sx={{mt:3, mb:5}} component="h1">Search Your Fitness Beer Route</Typography>
+            <Typography variant="h5" align="center" sx={{mt:2, mb:3}} component="h1">Search Your Fitness Beer Route</Typography>
             
-            <Stack spacing={2} direction="column" alignItems="center">
+            <Stack spacing={3} direction="column" alignItems="center">
                 <Difficulty difficulty={difficulty} handleChange={handleDistance}/>
                 <BarsQuantity barsQuantity={barsQuantity} handleChange={handleBarsQuantity} />
                 <Mode mode={mode} handleChange={handleMode} />

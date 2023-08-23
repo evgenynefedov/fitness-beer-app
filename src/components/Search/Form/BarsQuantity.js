@@ -4,6 +4,7 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
 import SportsBarOutlined from '@mui/icons-material/SportsBar';
+import Stack from '@mui/material/Stack';
 
 const StyledRating = styled(Rating)({
     '& .MuiRating-iconFilled': {
@@ -16,12 +17,12 @@ const StyledRating = styled(Rating)({
 
 export default function BarsQuantity({barsQuantity, handleChange}) {
     return (
-        <>
-            <Typography component="legend">Bars for today</Typography>
+        <Stack spacing={0.5} sx={{width: "100%"}} alignItems="center">
+            <Typography component="legend">Bars for today: <b>{barsQuantity}</b></Typography>
             <StyledRating
                 value={barsQuantity}
                 onChange={handleChange}
-                sx={{fontSize: "2.5rem"}}
+                sx={{fontSize: "2.7rem"}}
                 name="quantity"
                 precision={1}
                 defaultValue={2}
@@ -30,10 +31,6 @@ export default function BarsQuantity({barsQuantity, handleChange}) {
                 icon={<SportsBarIcon fontSize="inherit" />}
                 emptyIcon={<SportsBarOutlined fontSize="inherit" />}
             />
-        </>
+    </Stack>
     );
-}
-
-{
-    //getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
 }
