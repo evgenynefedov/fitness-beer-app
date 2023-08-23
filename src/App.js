@@ -20,7 +20,7 @@ const App = () => (
   <div className="App">
     <h1>Find Nearby Bars</h1>
     <FindBarsButton />
-    <Wrapper apiKey={"AIzaSyDx8fNneEhgOyWgtiwg5P05eHEYfQd6qOQ"} libraries={["places"]}  render={render} />
+    <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={render} />
   </div>
 );
 

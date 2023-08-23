@@ -3,8 +3,13 @@ import { findBarsAroundMe } from '../utils/findBarsAroundMe'
 
 const FindBarsButton = () => {
   const handleButtonClick = async () => {
-    const bars = await findBarsAroundMe(100);
-    console.log("Found bars:", bars);
+    const minRatings = 100;
+  const ratingWeight = 0.5; 
+  const distanceWeight = 0.5; 
+  const numberOfBars = 5; 
+
+  const bars = await findBarsAroundMe(minRatings, ratingWeight, distanceWeight, numberOfBars);
+  console.log("Found bars:", bars);
   };
 
   return (

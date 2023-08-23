@@ -1,5 +1,5 @@
 const SEARCH_RADIUS = 290000
-const PLACE_TYPE = 'bar'
+const PLACE_TYPE = 'restaurant'
 
 export const getNearbyBars = async (userLocation, minRatings) => {
     try {
