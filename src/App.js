@@ -2,6 +2,13 @@ import React, { useEffect } from 'react';
 import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import FindBarsButton from './components/FindBarsButton';
 import MyMapComponent from './components/MyMapComponent';  // Предполагается, что у вас есть такой компонент
+import Container from '@mui/material/Container';
+import Search from './components/Search/Search'
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 const render = (status) => {
   switch (status) {
@@ -16,10 +23,14 @@ const render = (status) => {
   }
 };
 
-const App = () => (
-  <div className="App">
-    <h1>Find Nearby Bars</h1>
-    <FindBarsButton />
-    <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={render} />
-  </div>
-);
+function App() {
+  return (
+    <Container component="main" maxWidth="xs">
+      <Search />
+
+      <FindBarsButton />
+      <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={render} />
+      
+    </Container>
+  );
+}
