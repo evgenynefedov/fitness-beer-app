@@ -23,13 +23,12 @@ const render = (status) => {
   }
 };
 
-function App() {
+export default function App() {
   return (
     <Container component="main" maxWidth="xs">
       <Search />
 
-      <FindBarsButton />
-      <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={render} />
+      <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={null} />
       
     </Container>
   );

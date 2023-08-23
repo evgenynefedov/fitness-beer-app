@@ -15,12 +15,13 @@ export const getNearbyBars = async (userLocation, minRatings) => {
           location: new google.maps.LatLng(userLocation.latitude, userLocation.longitude),
           radius: SEARCH_RADIUS,
           type: [PLACE_TYPE],
-          fields: ['name', 'rating', 'user_ratings_total', 'geometry'],
+          fields: ['name', 'rating', 'user_ratings_total', 'geometry', 'photos'],
         };
   
         service.nearbySearch(request, (results, status) => {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
-            const filteredBars = results.filter(bar => bar.user_ratings_total >= minRatings);
+            const filteredBars = results.filter(bar => bar.user_ratings_total >= minRatings)
+
             resolve(filteredBars);
           } else {
             reject(`Error fetching nearby bars: ${status}`);

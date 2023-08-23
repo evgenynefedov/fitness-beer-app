@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import Stack from '@mui/material/Stack';
-
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
 import BarsQuantity from './BarsQuantity';
 import Difficulty from './Difficulty';
 import Mode from './Mode';
 import Submit from './Submit';
+import { findBarsAroundMe } from './../../../utils/findBarsAroundMe'
 
 export default function Form() {
 
@@ -33,6 +32,16 @@ export default function Form() {
         }
     };
 
+    const handleSubmit = async (event) => {
+        const minRatings = 100;
+        const ratingWeight = 50; 
+        const distanceWeight = difficulty; 
+        const numberOfBars = barsQuantity; 
+    
+        const bars = await findBarsAroundMe(minRatings, ratingWeight, distanceWeight, numberOfBars);
+        console.log("Found bars:", bars);
+    }
+
     useEffect(() => {
         console.log(`difficulty: ${difficulty}, barsQuantity ${barsQuantity}, mode ${mode}`)
     }, [difficulty, barsQuantity, mode])
@@ -45,7 +54,7 @@ export default function Form() {
                 <Difficulty difficulty={difficulty} handleChange={handleDistance}/>
                 <BarsQuantity barsQuantity={barsQuantity} handleChange={handleBarsQuantity} />
                 <Mode mode={mode} handleChange={handleMode} />
-                <Submit />
+                <Submit handleChange={handleSubmit} />
             </Stack>
         </Container>
     );

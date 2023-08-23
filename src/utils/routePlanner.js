@@ -23,6 +23,16 @@ const getDistance = (p1, p2) => {
       return ratingDiff + distanceDiff;
     });
   
-    return sortedBars.slice(0, numberOfBars);
+    sortedBars = sortedBars
+      .slice(0, numberOfBars)
+      .map(bar => ({
+        ...bar,
+        photo: bar.photos.length ? bar.photos[0].getUrl() : null
+      })
+    )
+      
+    //sortedBars.forEach(bar => { console.log("url photo" + bar.photos[0].getUrl()) })
+
+    return sortedBars
   };
   
