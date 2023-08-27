@@ -5,7 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import TelegramIcon from '@mui/icons-material/Telegram';
 
-export default function Onboarding() {
+export default function Onboarding({getStarted}) {
   return (
     <Container component="main" maxWidth="xs" sx={{ minHeight: '100vh', p: 3, alignItems: 'center', display: 'flex', flexDirection: 'column', bgcolor: '#FFFFFF' }}>
       <Box 
@@ -22,7 +22,7 @@ export default function Onboarding() {
       <Typography variant="h4" gutterBottom align="center">Welcome to BrewRoute!</Typography>
       <Typography variant="subtitle1" gutterBottom align="center">Your frothy journey to fitness starts here!</Typography>
       
-      <Button variant="contained" color="primary" component={Link} to="/" sx={{ mt: 2, mb: 3 }}>Let's Get Started</Button>
+      <Button variant="contained" color="primary" onClick={getStarted} sx={{ mt: 2, mb: 3 }}>Let's Get Started</Button>
 
       <Box sx={{ width: '80%', mt: 2, mb: 3, boxShadow: 1 }}>
         <Typography variant="body2" color="textSecondary" align="center" gutterBottom sx={{ fontStyle: 'italic', mt: 1 }}>

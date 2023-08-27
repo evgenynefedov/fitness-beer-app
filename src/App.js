@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Wrapper, Status } from '@googlemaps/react-wrapper';
-import FindBarsButton from './components/FindBarsButton';
-import MyMapComponent from './components/MyMapComponent';  // Предполагается, что у вас есть такой компонент
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MyMapComponent from './components/MyMapComponent';
 import Container from '@mui/material/Container';
 import Search from './components/Search/Search'
+import Onboarding from './components/Onboarding/Onboarding'
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -24,12 +25,21 @@ const render = (status) => {
 };
 
 export default function App() {
+
+  const [onboarded, setOnboarded] = useState(false)
+
+  const getStarted = () => {
+    setOnboarded(true)
+  }
+
   return (
     <Container component="main" >
-      <Search />
-
+      {onboarded ?
+        <Search />
+        :
+        <Onboarding getStarted={getStarted} />
+      }
       <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={null} />
-      
     </Container>
   );
 }
