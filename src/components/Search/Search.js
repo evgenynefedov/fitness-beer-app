@@ -41,6 +41,10 @@ export default function Search() {
     console.log("Found bars:", bars);
   }
 
+  const resetResult = () => {
+    setResult(false)
+  }
+
   useEffect(() => {
     console.log(`difficulty: ${difficulty}, barsQuantity ${barsQuantity}, mode ${mode}`)
   }, [difficulty, barsQuantity, mode])
@@ -49,7 +53,7 @@ export default function Search() {
     <>
       {result === false ?
         <Form difficulty={difficulty} handleDifficulty={handleDifficulty} barsQuantity={barsQuantity} handleBarsQuantity={handleBarsQuantity} mode={mode} handleMode={handleMode} handleSubmit={handleSubmit} /> :
-        <Result bars={result} />
+        <Result bars={result} resetResult={resetResult} />
       }
     </>
   );
