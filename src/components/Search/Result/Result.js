@@ -23,7 +23,7 @@ export default function Result({ bars }) {
                     <Tab value="map" label="Map" />
                 </Tabs>
             </Box>
-
+            
             {(view == "list" && <List bars={bars} />)}
             {(view == "map" && <Map bars={bars} />)}
 

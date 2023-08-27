@@ -25,7 +25,7 @@ const render = (status) => {
 
 export default function App() {
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" >
       <Search />
 
       <Wrapper apiKey={"AIzaSyDns5rOlHj-9CslKGig8Va8OYyWxj81QWo"} libraries={["places"]}  render={null} />
